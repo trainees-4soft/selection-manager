@@ -1,5 +1,10 @@
 SelectionManager::Application.routes.draw do
+<<<<<<< HEAD
   get "home/index"
+=======
+  resources :candidates
+
+>>>>>>> 9f9ac5895735d5437f4fbb03f501276802af98a8
 
   devise_for :users
 
@@ -68,5 +73,4 @@ SelectionManager::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-  root :to => "home#index"
 end
