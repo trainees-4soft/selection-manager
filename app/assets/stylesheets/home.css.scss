@@ -68,3 +68,36 @@ body {
 	border-radius: 1px !important;
 	border: 0px !important; 
 }
+
+.form-card{
+	margin: 20px auto;
+	padding: 40px;
+	background-color: rgba(60, 160, 225, 0.75);
+	width: 300px;
+	label {
+		font-size: 16px;
+		font-weight: 400;
+		color: #fff;
+	}
+	input {
+		height: 40px;
+		width: 280px;
+		border: none !important;
+	}
+	.btn {
+		margin: 40px 0 20px 0;
+		height: 50px;
+		width: 298px;
+		color: #fff;
+		background: rgb(19, 154, 76) !important;
+		font-size: 18px;
+	}
+	a {
+		color: #fff;
+		text-decoration: underline;
+	}
+}
+
+.form-container {
+	background-color: rgba(80, 180, 247, 0.5);
+}
