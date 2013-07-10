@@ -1,6 +1,7 @@
 class EnterprisesController < ApplicationController
   # GET /enterprises
   # GET /enterprises.json
+  load_and_authorize_resource
   def index
     @enterprises = Enterprise.all
 

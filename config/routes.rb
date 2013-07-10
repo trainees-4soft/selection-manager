@@ -1,10 +1,17 @@
 SelectionManager::Application.routes.draw do
 
+  resources :roles
+
+
   resources :candidates
 
 
   devise_for :users
 
+
+  resources :users
+
+  
   resources :enterprises
 
 

@@ -1,6 +1,7 @@
 class StepsController < ApplicationController
   # GET /steps
   # GET /steps.json
+  load_and_authorize_resource
   def index
     @steps = Step.all
 
