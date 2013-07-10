@@ -6,6 +6,7 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :telephone
       t.string :facebook
       t.text :about
+      t.references :selection
 
       t.timestamps
     end

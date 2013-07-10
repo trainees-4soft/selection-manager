@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(:version => 20130710003020) do
     t.string   "telephone"
     t.string   "facebook"
     t.text     "about"
+    t.integer  "selection_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.integer  "selection_id"
   end
 
   create_table "enterprises", :force => true do |t|
@@ -54,15 +54,14 @@ ActiveRecord::Schema.define(:version => 20130710003020) do
   create_table "steps", :force => true do |t|
     t.time    "hour"
     t.date    "date"
-    t.integer "selection_id"
     t.string  "title"
     t.text    "description"
+    t.integer "selection_id"
   end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
-    t.integer  "enterprise_id"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -71,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20130710003020) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "enterprise_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end

@@ -1,7 +1,11 @@
 <%= simple_form_for @step, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :title %>
   <%= f.input :hour %>
   <%= f.input :date %>
-  <!--<% :selection_id = @selection.id%>-->
+  <%= f.input :description %>
+  
+  <% @objeto = Selection.find(params[:id]) %>	
+  <%= hidden_field_tag 'teste', @objeto.id %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

@@ -1,7 +1,7 @@
 class StepsController < ApplicationController
   # GET /steps
   # GET /steps.json
-  load_and_authorize_resource
+  #load_and_authorize_resource
   def index
     @steps = Step.all
 
@@ -42,7 +42,7 @@ class StepsController < ApplicationController
   # POST /steps.json
   def create
     @step = Step.new(params[:step])
-
+    @step.selection = Selection.find(params[:teste])
     respond_to do |format|
       if @step.save
         format.html { redirect_to @step, notice: 'Step was successfully created.' }
