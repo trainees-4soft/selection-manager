@@ -25,17 +25,18 @@
 								<li>
 									<a href="#">Contato</a>
 								</li>
-								<% if current_user %>
+								<% if can? :manage, 'users' %>
 								<li class="active" >
 									<a <%=link_to "Manage users", users_path %>></a>
 								</li>
 								<li class="active">
 									<a <%=link_to "Manage enterprises", enterprises_path %>></a>
 								</li>
+								<% end %>
+								<% if current_user %>
 								<li class="active">
 									<a <%=link_to "Sing out", destroy_user_session_path, method: :delete %>></a>
 								</li>
-								
 								<%end%>								
 							</ul>							
 						</div>

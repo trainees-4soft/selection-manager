@@ -22,13 +22,27 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation %>
   </div>
-  <% for role in Role.find(:all) %>
-    <div>
-      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-      <%= role.name %>
-    </div>
-  <% end %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      <% current_user.roles.each do |t| %>
+          <% if t.name == "Administrator" %>
+              <% for role in Role.find(:all)%>
+                  <div>
+                      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+                      <%= role.name %>
+                  </div>
+              <% end %>
+              <div class="actions">
+                  <%= f.submit %>
+              </div>
+          <% else %>
+              <%for role in Role.find(current_user.role_ids)%>
+                  <div>
+                      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+                      <%= t.name %>
+                  </div>
+              <%end%>
+              <div class="actions">
+                  <%= f.submit %>
+              </div>
+          <%end%>
+      <%end%>
+<%end%>

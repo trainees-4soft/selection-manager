@@ -9,6 +9,7 @@ class Ability
     elsif user.role? :Team
       can :manage, Selection
       can :manage, Step
+      can :manage, User
     else 
       can :read, :all
     end
