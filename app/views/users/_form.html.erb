@@ -22,27 +22,25 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation %>
   </div>
-      <% current_user.roles.each do |t| %>
-          <% if t.name == "Administrator" %>
-              <% for role in Role.find(:all)%>
-                  <div>
-                      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-                      <%= role.name %>
-                  </div>
-              <% end %>
-              <div class="actions">
-                  <%= f.submit %>
-              </div>
-          <% else %>
-              <%for role in Role.find(current_user.role_ids)%>
-                  <div>
-                      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-                      <%= t.name %>
-                  </div>
-              <%end%>
-              <div class="actions">
-                  <%= f.submit %>
-              </div>
-          <%end%>
-      <%end%>
+  <% if current_user.roles.name =="Administrator" %>
+      <% for role in Role.find(:all)%>
+          <div>
+              <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+              <%= role.name %>
+          </div>
+      <% end %>
+      <div class="actions">
+          <%= f.submit %>
+      </div>
+  <% else %>
+      <% for role in Role.find(:all)%> <%#PARA RESTRINGIR A CRIAÇÃO DE CONTAS É SÓ SUBSTITUIR '(:all)' por '(2,3)'%>
+          <div>
+              <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+              <%= role.name %>
+          </div>
+      <% end %>
+      <div class="actions">
+          <%= f.submit %>
+      </div>
+  <%end%>
 <%end%>

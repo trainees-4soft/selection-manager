@@ -6,12 +6,13 @@ class Ability
 
     if user.role? :Administrator
       can :manage, :all
-    elsif user.role? :Team
-      can :manage, Selection
-      can :manage, Step
-      can :manage, User
-    else 
-      can :read, :all
+    elsif user.role? :TeamMaster
+          can :manage, User
+          can :manage, Selection
+    end
+    if user.role? :Team
+        can :manage, Selection
+        can :manage, Step
     end
   end
 end
