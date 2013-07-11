@@ -1,10 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<h2> Etapa : <%= @step.title %> </h2>
+
+<h3> <%= @step.description %></h3>
 <p>
   <b>Hour:</b>
-  <%= @step.hour %>
+  <% @hora = @step.hour %>
+  <% @hora.to_s%>
+  <%=@hora.strftime "%H:%M"	%>
 </p>
-
 <p>
   <b>Date:</b>
   <%= @step.date %>
