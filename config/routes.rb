@@ -15,10 +15,9 @@ SelectionManager::Application.routes.draw do
   resources :enterprises
 
 
-  resources :steps
-
-
-  resources :selections
+  resources :selections do
+    resources :steps 
+  end
 
 
   # The priority is based upon order of creation:

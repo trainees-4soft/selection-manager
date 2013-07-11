@@ -3,7 +3,7 @@ class StepsController < ApplicationController
   # GET /steps.json
   #load_and_authorize_resource
   def index
-    @steps = Step.all
+    @steps = Step.where("selection_id = ?", params[:selection_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,6 +26,7 @@ class StepsController < ApplicationController
   # GET /steps/new.json
   def new
     @step = Step.new
+    @selection = Selection.find(params[:selection_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,16 +37,18 @@ class StepsController < ApplicationController
   # GET /steps/1/edit
   def edit
     @step = Step.find(params[:id])
+    @selection = @step.selection
   end
 
   # POST /steps
   # POST /steps.json
   def create
-    @step = Step.new(params[:step])
-    @step.selection = Selection.find(params[:teste])
+    @selection = Selection.find(params[:selection_id])
+    @step = @selection.steps.new(params[:step])
+
     respond_to do |format|
       if @step.save
-        format.html { redirect_to @step, notice: 'Step was successfully created.' }
+        format.html { redirect_to selection_step_path(@step.selection, @step), notice: 'Step was successfully created.' }
         format.json { render json: @step, status: :created, location: @step }
       else
         format.html { render action: "new" }
@@ -61,7 +64,7 @@ class StepsController < ApplicationController
 
     respond_to do |format|
       if @step.update_attributes(params[:step])
-        format.html { redirect_to @step, notice: 'Step was successfully updated.' }
+        format.html { redirect_to selection_step_path, notice: 'Step was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
