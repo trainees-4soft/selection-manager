@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(:version => 20130711042116) do
     t.string   "telephone"
     t.string   "facebook"
     t.text     "about"
+    t.integer  "selection_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.integer  "selection_id"
   end
 
   create_table "enterprises", :force => true do |t|
@@ -54,21 +54,9 @@ ActiveRecord::Schema.define(:version => 20130711042116) do
   create_table "steps", :force => true do |t|
     t.time    "hour"
     t.date    "date"
-    t.integer "selection_id"
     t.string  "title"
     t.text    "description"
-  end
-
-  create_table "user_enterprises", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "enterprise_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "user_enterprizes", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "selection_id"
   end
 
   create_table "users", :force => true do |t|
