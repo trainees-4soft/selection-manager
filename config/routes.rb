@@ -16,7 +16,7 @@ SelectionManager::Application.routes.draw do
 
 
   resources :selections do
-    resources :steps 
+    resources :steps, :except => :index
   end
 
 

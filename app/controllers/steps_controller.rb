@@ -1,15 +1,7 @@
 class StepsController < ApplicationController
-  # GET /steps
-  # GET /steps.json
   #load_and_authorize_resource
-  def index
-    @steps = Step.where("selection_id = ?", params[:selection_id])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @steps }
-    end
-  end
+  # Retirado o método index, que será substituído pela view selections#show
 
   # GET /steps/1
   # GET /steps/1.json
@@ -80,7 +72,7 @@ class StepsController < ApplicationController
     @step.destroy
 
     respond_to do |format|
-      format.html { redirect_to steps_url }
+      format.html { redirect_to selection_path(params[:selection_id]) }
       format.json { head :no_content }
     end
   end

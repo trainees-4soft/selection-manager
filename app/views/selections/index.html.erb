@@ -1,24 +1,26 @@
 <h1>Listing selections</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if @selections.count.zero? %>
+  <p><h4>Não há processos seletivos cadastrados!</h4></p>
+<% else %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @selections.each do |selection| %>
-  <tr>
-    <td><%= selection.title %></td>
-    <td><%= selection.description %></td>
-    <td><%= link_to 'Show', selection %></td>
-    <td><%= link_to 'Edit', edit_selection_path(selection) %></td>
-  </tr>
+  <% @selections.each do |selection| %>
+    <tr>
+      <td><%= selection.title %></td>
+      <td><%= link_to 'Detalhes', selection %> | </td>
+      <td><%= link_to 'Editar', edit_selection_path(selection) %> | </td>
+      <td><%= link_to 'Excluir', selection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
 <% end %>
-</table>
-
 <br />
 
 <%= link_to 'New Selection', new_selection_path %>

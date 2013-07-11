@@ -75,7 +75,7 @@ class SelectionsController < ApplicationController
   # DELETE /selections/1.json
   def destroy
     @selection = Selection.find(params[:id])
-    @steps = Step.where("selection_id = ?", @selection.id)
+    @steps = @selection.steps
     @steps.destroy_all
     @selection.destroy
 
