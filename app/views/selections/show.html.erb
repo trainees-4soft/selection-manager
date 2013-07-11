@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+	<p id="notice"><%= notice %></p>
 
 <p>
   <b>Title:</b>
@@ -9,6 +9,16 @@
   <b>Description:</b>
   <%= @selection.description %>
 </p>
+
+<p>Steps</p>
+<% @parametro = params[:id] %>
+
+<% @all_steps = Step.all %>
+<% @all_steps.each do |step| %>
+	<% if step.selection_id.equal? @parametro.to_i %>
+	<p><%= step.title %></p>
+	<% end %>
+<% end %>
 
 <%= link_to 'New Step', new_step_path(:id => params['id']) %>
 <%= link_to 'Edit', edit_selection_path(@selection) %> |
