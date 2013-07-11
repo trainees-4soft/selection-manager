@@ -28,6 +28,7 @@
               <%= role.name %>
           </div>
       <% end %>
+      <%= f.select :enterprise_id, Enterprise.find(:all).collect { |t| [t.name,t.id] }  %>
       <div class="actions">
           <%= f.submit %>
       </div>
