@@ -1,12 +1,14 @@
 <%= simple_form_for([@selection, @step], :html => { :class => 'form-horizontal' }) do |f| %>
   <%= f.input :title %>
   <%= f.input :hour %>
-  <%= f.input :date %>
+   <%= f.input :date, as: :date, start_year: Date.today.year,  
+                                end_year: Date.today.year + 10 ,
+                                order: [:day,:month, :year] %>
   <%= f.input :description %>
   
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= f.button :submit, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                selection_steps_path, :class => 'btn' %>
+                selection_steps_path, :class => 'btn btn-info' %>
   </div>
 <% end %>
