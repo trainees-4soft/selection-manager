@@ -1,5 +1,5 @@
 class Step < ActiveRecord::Base
-  attr_accessible :date, :hour, :title, :description, :attach
+  attr_accessible :date, :hour, :title, :description, :attach, :attach_file
   belongs_to :selection
   has_attached_file :pic, :styles => 
         { :medium => "300x300>", :thumb => "100x100>" }

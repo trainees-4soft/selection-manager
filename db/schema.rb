@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710003020) do
+ActiveRecord::Schema.define(:version => 20130712014638) do
 
   create_table "candidates", :force => true do |t|
     t.string   "name"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20130710003020) do
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
+    t.boolean  "attach_file"
   end
 
   create_table "users", :force => true do |t|
@@ -74,9 +75,9 @@ ActiveRecord::Schema.define(:version => 20130710003020) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "enterprise_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "enterprise_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
