@@ -5,7 +5,7 @@
                                 end_year: Date.today.year + 10 ,
                                 order: [:day,:month, :year] %>
   <%= f.input :hour %>
-  <%= f.input :description %>
+  <%= f.input :description, :input_html => {:style => 'width: 500px; height: 200px'}%>
   
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary' %>

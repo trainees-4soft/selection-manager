@@ -1,13 +1,10 @@
 <%= simple_form_for(@selection, :html => { :class => 'form-horizontal' }) do |f| %>
 
   <%= f.input :title, label: 'Nome' %>
-<<<<<<< HEAD
-  <%= f.input :description, label: 'Descrição' %>
-  <%= f.input :entries_end_date, label: 'Prazo final para inscrições' %>
-=======
+
   <%= f.input :description, label: 'Descrição', :input_html => {:style => 'width: 500px; height: 200px'} %>
   <%= f.input :entries_end_date, label: 'Prazo final para inscrições', order: [:day,:month, :year], :input_html => {:style => 'width: auto'} %>
->>>>>>> cb4535c8d5eb5e357567fd68c3d38f843d47bfeb
+
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary' %>
