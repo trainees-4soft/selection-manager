@@ -1,25 +1,28 @@
 <h1>Processos seletivos</h1>
+<%# @selections.each do |t| %>
+ <%# if t.enterprise_id == current_user.enterprise_id %>
+  <% if @selections.count.zero? %>
+    <p><h4>Não há processos seletivos cadastrados!</h4></p>
+  <% else %>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<% if @selections.count.zero? %>
-  <p><h4>Não há processos seletivos cadastrados!</h4></p>
-<% else %>
-  <table>
-    <tr>
-      <th>Title</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-
-  <% @selections.each do |selection| %>
-    <tr>
-      <td><%= selection.title %></td>
-      <td><%= link_to 'Detalhes', selection %> | </td>
-      <td><%= link_to 'Editar', edit_selection_path(selection) %> | </td>
-      <td><%= link_to 'Excluir', selection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </table>
+    <% @selections.each do |selection| %>
+      <tr>
+        <td><%= selection.title %></td>
+        <td><%= link_to 'Detalhes', selection %> | </td>
+        <td><%= link_to 'Editar', edit_selection_path(selection) %> | </td>
+        <td><%= link_to 'Excluir', selection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </table>
+  <%# end %>
+ <%# end %>
 <% end %>
 <br />
 
