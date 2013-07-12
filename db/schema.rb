@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711042116) do
+ActiveRecord::Schema.define(:version => 20130712011729) do
 
   create_table "candidates", :force => true do |t|
     t.string   "name"
@@ -52,11 +52,15 @@ ActiveRecord::Schema.define(:version => 20130711042116) do
   end
 
   create_table "steps", :force => true do |t|
-    t.time    "hour"
-    t.date    "date"
-    t.string  "title"
-    t.text    "description"
-    t.integer "selection_id"
+    t.time     "hour"
+    t.date     "date"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "selection_id"
+    t.string   "attach_file_name"
+    t.string   "attach_content_type"
+    t.integer  "attach_file_size"
+    t.datetime "attach_updated_at"
   end
 
   create_table "users", :force => true do |t|

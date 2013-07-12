@@ -1,4 +1,4 @@
-<%= simple_form_for([@selection, @step], :html => { :class => 'form-horizontal' }) do |f| %>
+<%= simple_form_for([@selection, @step], :html => { :class => 'form-horizontal' ,  :multipart => true }) do |f| %>
 
   <%= f.input :title %>
   <%= f.input :date, as: :date, start_year: Date.today.year,  
@@ -7,6 +7,11 @@
   <%= f.input :hour %>
   <%= f.input :description, :input_html => {:style => 'width: 500px; height: 200px'}%>
   
+  <p>
+    <b> attachment </b><br/>
+    <%= f.file_field :attach %>
+  </p>
+
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

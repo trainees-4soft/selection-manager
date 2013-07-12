@@ -17,6 +17,10 @@
   <%= @hora.strftime "%H:%M" %>
 </p>
 
+<a href="<%= @step.attach.url %> ">
+<b> Arquivo Anexado</b></a>
+<br/>
+ 
 
 <%= link_to 'Editar', edit_selection_step_path(@step.selection, @step) %> |
 <%= link_to 'Voltar', @step.selection %> 
