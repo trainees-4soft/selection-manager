@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(:version => 20130712015136) do
     t.string   "telephone"
     t.string   "facebook"
     t.text     "about"
+    t.integer  "selection_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.integer  "selection_id"
   end
 
   create_table "enterprises", :force => true do |t|
@@ -55,25 +55,14 @@ ActiveRecord::Schema.define(:version => 20130712015136) do
   create_table "steps", :force => true do |t|
     t.time     "hour"
     t.date     "date"
-    t.integer  "selection_id"
     t.string   "title"
     t.text     "description"
+    t.integer  "selection_id"
     t.string   "attach_file_name"
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
-  end
-
-  create_table "user_enterprises", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "enterprise_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "user_enterprizes", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "attach_file"
   end
 
   create_table "users", :force => true do |t|
