@@ -7,15 +7,11 @@
   <%= f.input :hour %>
   <%= f.input :description, :input_html => {:style => 'width: 500px; height: 200px'}%>
   
-  <br/>
-
   <p>
-    <b> Anexar arquivo </b><br/>
+    <b> attachment </b><br/>
     <%= f.file_field :attach %>
   </p>
 
-  <p> Deseja que o candidato anexe algum arquivo?</p>
-  <%= f.check_box :attach_file %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
