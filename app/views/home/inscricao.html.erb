@@ -1,21 +1,22 @@
-<h1>Inscrições</h1>
+<h1 class="subscribe-title">Inscrições</h1>
+<div class="form-container">
+  <table>
+    <tr>
+      <th class="span5">Processo seletivo</th>
+      <th class="span3">Data final</th>
+      <th class="span4">Descrição</th>
+      <th></th>
+    </tr>
+  <% @selections = Selection.all %>
+  <% @selections.each do |s| %>
+    <tr>
+      <td><%= s.title %></td>
+      <td><%= s.entries_end_date %></td>
+      <td><%= s.description %></td>
+      <td class="subscribe-btn"><%= link_to 'Inscrever-se', new_candidate_path %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<table>
-  <tr>
-    <th>Processo seletivo</th>
-    <th>Data final</th>
-    <th>Descrição</th>
-    <th></th>
-  </tr>
-<% @selections = Selection.all %>
-<% @selections.each do |s| %>
-  <tr>
-    <td><%= s.title %></td>
-    <td><%= s.entries_end_date %></td>
-    <td><%= s.description %></td>
-    <td><%= link_to 'Inscrever-se', new_candidate_path %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+  <br />
+</div>

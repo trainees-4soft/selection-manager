@@ -69,35 +69,38 @@ body {
 	border: 0px !important; 
 }
 
-.form-card{
-	margin: 20px auto;
-	padding: 40px;
-	background-color: rgba(60, 160, 225, 0.75);
-	width: 300px;
-	label {
-		font-size: 16px;
-		font-weight: 400;
-		color: #fff;
-	}
-	input {
-		height: 40px;
-		width: 280px;
-		border: none !important;
-	}
-	.btn {
-		margin: 40px 0 20px 0;
-		height: 50px;
-		width: 298px;
-		color: #fff;
-		background: rgb(19, 154, 76) !important;
-		font-size: 18px;
-	}
-	a {
-		color: #fff;
-		text-decoration: underline;
+th {
+	padding: 10px 20px;
+	color:#fff;
+	background-color: #7f8c8d;
+}
+
+td, th {
+	padding: 10px 20px;
+	border: 1px solid #000;
+}
+
+td {
+	.btn-success {
+		a {
+			color: #fff !important;
+			border: 1px solid #fff !important;
+		}
 	}
 }
 
-.form-container {
-	background-color: rgba(80, 180, 247, 0.5);
+.subscribe-title {
+	color: #fff;
+	padding: 10px;
+	margin: 0;
+	background-color: #e74c3c;
+}
+
+.subscribe-btn {
+	color: #fff;
+	background-color: #27ae60;
+	a {
+		color: #fff !important;
+		font-size: 18px;
+	}
 }
