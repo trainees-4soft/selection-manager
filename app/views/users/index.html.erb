@@ -4,6 +4,7 @@
   <tr>
     <th>Email</th>
     <th>Account Type</th>
+    <th>Enterprise</th>
   </tr>
 
   <% @users.each do |user| %>
@@ -12,6 +13,7 @@
       <td><% user.roles.each do |t| %>
             <%=t.name%>
             <%end%></td>
+      <td><%= Enterprise.find(user.enterprise_id).name %></td>
       <td><%= link_to 'Show', user %></td>
       <td><%= link_to 'Edit', edit_user_path(user) %></td>
     </tr>
