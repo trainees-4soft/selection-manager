@@ -1,41 +1,43 @@
 <p id="notice"><%= notice %></p>
+<% if @selection.enterprise_id == current_user.enterprise_id %>
+	<h2> Processo Seletivo: <%= @selection.title %> </h2>
 
-<h2> Processo Seletivo: <%= @selection.title %> </h2>
+	<h3> <%= @selection.description %></h3>
 
-<h3> <%= @selection.description %></h3>
-
-<% if @selection.steps.count.zero? %>
-	<p><h4>Não há etapas cadastradas!</h4></p>
-<% else %>
-	<p><h4>Etapas cadastradas:</h4>
-	<table>
-		<tr>
-			<th>Etapa:</th>
-			<th>Hora:</th>
-			<th>Data:</th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
+	<% if @selection.steps.count.zero? %>
+		<p><h4>Não há etapas cadastradas!</h4></p>
+	<% else %>
+		<p><h4>Etapas cadastradas:</h4>
+		<table>
+			<tr>
+				<th>Etapa:</th>
+				<th>Hora:</th>
+				<th>Data:</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
 
 		<% @selection.steps.each do |step| %>
-  		<tr>
-    		<td><%= step.title %></td>
-    		<% @hora = step.hour %>
-    		<% @hora.to_s%>
-    		<td><%= @hora.strftime "%H:%M" %></td>
-    		<% @data = step.date %>
-    		<% @data.to_s %>
-    		<td><%= @data.strftime "%d/%m/%Y" %></td>
-	    	<td><%= link_to 'Detalhes', selection_step_path(step.selection, step) %></td>
-	    	<td><%= link_to 'Editar', edit_selection_step_path(step.selection, step) %></td>
-	    	<td><%= link_to 'Excluir', @selection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  		</tr>
+  			<tr>
+    			<td><%= step.title %></td>
+    			<% @hora = step.hour %>
+    			<% @hora.to_s%>
+    			<td><%= @hora.strftime "%H:%M" %></td>
+    			<% @data = step.date %>
+    			<% @data.to_s %>
+    			<td><%= @data.strftime "%d/%m/%Y" %></td>
+	    		<td><%= link_to 'Detalhes', selection_step_path(step.selection, step) %></td>
+	    		<td><%= link_to 'Editar', edit_selection_step_path(step.selection, step) %></td>
+	    		<td><%= link_to 'Excluir', @selection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  			</tr>
 		<% end %>
-	</table>
-<% end %>
-
+		</table>
+	<% end %>
 <br>
 <%= link_to 'Nova Etapa', new_selection_step_path(@selection) %> | 
 <%= link_to 'Editar', edit_selection_path(@selection) %> |
 <%= link_to 'Voltar', selections_path %>
+<% else %>
+	<%= link_to 'Voltar', selections_path %>
+<% end %>
