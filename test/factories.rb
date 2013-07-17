@@ -13,4 +13,8 @@ FactoryGirl.define do
 			name 'Team'
 		end
 	end
+
+	factory :enterprise do 
+		name: '4soft'
+	end
 end
