@@ -1,5 +1,5 @@
 class StepsController < ApplicationController
-  #load_and_authorize_resource
+  load_and_authorize_resource
 
   # Retirado o método index, que será substituído pela view selections#show
 
