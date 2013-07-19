@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
-  #load_and_authorize_resource  LEMBRAR DE COLOCAR OS FILTROS!
+  load_and_authorize_resource  #LEMBRAR DE COLOCAR OS FILTROS!
   def index
     @users = User.all
 

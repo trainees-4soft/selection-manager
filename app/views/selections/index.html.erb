@@ -14,7 +14,7 @@
       </tr>
 
     <% @selections.each do |selection| %>
-      <% if selection.enterprise_id == current_user.enterprise_id %>
+      <% if selection.enterprise_id == current_user.enterprise_id or current_user.enterprise_id.eql?1 %>
         <tr>
           <td><%= selection.title %></td>
           <% if can? :manage, 'users' %>

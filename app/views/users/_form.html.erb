@@ -22,14 +22,31 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation %>
   </div>
+    <% if current_user.role_ids == [1] %>
       <% for role in Role.find(:all)%>
           <div>
               <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
               <%= role.name %>
           </div>
       <% end %>
-      <%= f.select :enterprise_id, Enterprise.find(:all).collect { |t| [t.name,t.id] }  %>
+      <div>
+        <%= f.select :enterprise_id, Enterprise.find(:all).collect { |t| [t.name,t.id] }  %>
+      </div>
       <div class="actions">
           <%= f.submit %>
       </div>
+    <% else %>
+        <% for role in Role.find(2,3)%>
+          <div>
+              <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+              <%= role.name %>
+          </div>
+      <% end %>
+      <div>
+        <%= f.select :enterprise_id, Enterprise.find(:all,:conditions => ["id LIKE :current",{:current => current_user.enterprise_id}]).collect { |t| [t.name,t.id] }  %>
+      </div>
+      <div class="actions">
+          <%= f.submit %>
+      </div>
+    <% end %>
 <%end%>

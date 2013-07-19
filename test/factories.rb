@@ -15,6 +15,6 @@ FactoryGirl.define do
 	end
 
 	factory :enterprise do 
-		name: '4soft'
+		name '4soft'
 	end
 end

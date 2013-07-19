@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<% if @selection.enterprise_id == current_user.enterprise_id %>
+<% if @selection.enterprise_id == current_user.enterprise_id or current_user.enterprise_id.eql?1 %>
 	<h2> Processo Seletivo: <%= @selection.title %> </h2>
 
 	<h3> <%= @selection.description %></h3>
