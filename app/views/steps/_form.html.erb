@@ -1,5 +1,5 @@
 <%= simple_form_for([@selection, @step], :html => { :class => 'form-horizontal' ,  :multipart => true }) do |f| %>
-<% if @selection.enterprise_id == current_user.enterprise_id %>
+<% if @selection.enterprise_id == current_user.enterprise_id or current_user.role_ids == [1] %>
   <%= f.input :title %>
   <%= f.input :date, as: :date, start_year: Date.today.year,  
                                 end_year: Date.today.year + 10 ,

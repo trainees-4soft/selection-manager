@@ -33,7 +33,7 @@
 										<a <%=link_to "Manage enterprises", enterprises_path %>></a>
 									</li>
 								<% else %>
-									<% if can? :manage,'users' %>
+									<% if can? :manage, User %>
 										<li class="active" >
 											<a <%=link_to "Manage users", users_path %>></a>
 										</li>
@@ -41,7 +41,7 @@
 											<a <%=link_to "Manage Selection", selections_path %>></a>
 										</li>
 									<% else %>
-										<% if can? :manage, :selection, :steps  %>
+										<% if can? :manage, Selection %>
 											<li class="active" >
 												<a <%=link_to "Manage Selection", selections_path %>></a>
 											</li>

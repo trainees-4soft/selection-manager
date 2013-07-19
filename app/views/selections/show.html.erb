@@ -39,5 +39,5 @@
 <%= link_to 'Editar', edit_selection_path(@selection) %> |
 <%= link_to 'Voltar', selections_path %>
 <% else %>
-	<%= link_to 'Voltar', selections_path %>
+	<% redirect_to root_url %>
 <% end %>
