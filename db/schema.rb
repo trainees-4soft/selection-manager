@@ -24,11 +24,6 @@ ActiveRecord::Schema.define(:version => 20130712015136) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "enterprise_selection", :id => false, :force => true do |t|
-    t.integer "enterprise_id"
-    t.integer "selection_id"
-  end
-
   create_table "enterprises", :force => true do |t|
     t.string   "name"
     t.string   "cnpj"
@@ -51,9 +46,10 @@ ActiveRecord::Schema.define(:version => 20130712015136) do
   end
 
   create_table "selections", :force => true do |t|
-    t.string "title"
-    t.text   "description"
-    t.date   "entries_end_date"
+    t.string  "title"
+    t.text    "description"
+    t.date    "entries_end_date"
+    t.integer "enterprise_id"
   end
 
   create_table "steps", :force => true do |t|

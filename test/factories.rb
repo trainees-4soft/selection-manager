@@ -17,4 +17,11 @@ FactoryGirl.define do
 	factory :enterprise do 
 		name '4soft'
 	end
+	factory :user do 
+		email 'master@email.com'
+		password 'master123'
+		password_confirmation 'master123'
+		role_ids 1
+		enterprise_id 1
+	end
 end
