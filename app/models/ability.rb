@@ -9,6 +9,7 @@ class Ability
     elsif user.role? :TeamMaster
           can :manage, User
           can :manage, Selection
+          can :manage, Step
     end
     if user.role? :Team
         can :manage, Selection
