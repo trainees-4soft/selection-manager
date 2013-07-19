@@ -8,15 +8,17 @@
   </tr>
 
   <% @users.each do |user| %>
-    <tr>
-      <td><%= user.email %></td>
-      <td><% user.roles.each do |t| %>
+    <% if user.enterprise_id == current_user.enterprise_id or current_user.role_ids == [1] %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><% user.roles.each do |t| %>
             <%=t.name%>
             <%end%></td>
-      <td><%= Enterprise.find(user.enterprise_id).name %></td>
-      <td><%= link_to 'Show', user %></td>
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    </tr>
+        <td><%= Enterprise.find(user.enterprise_id).name %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      </tr>
+    <% end %>
   <% end %>
 </table>
 

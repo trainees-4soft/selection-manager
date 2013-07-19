@@ -25,13 +25,28 @@
 								<li>
 									<a href="#">Contato</a>
 								</li>
-								<% if can? :manage, 'users' %>
-								<li class="active" >
-									<a <%=link_to "Manage users", users_path %>></a>
-								</li>
-								<li class="active">
-									<a <%=link_to "Manage enterprises", enterprises_path %>></a>
-								</li>
+								<% if can? :manage,:all %>
+									<li class="active" >
+										<a <%=link_to "Manage users", users_path %>></a>
+									</li>
+									<li class="active">
+										<a <%=link_to "Manage enterprises", enterprises_path %>></a>
+									</li>
+								<% else %>
+									<% if can? :manage,'users' %>
+										<li class="active" >
+											<a <%=link_to "Manage users", users_path %>></a>
+										</li>
+										<li class="active" >
+											<a <%=link_to "Manage Selection", selections_path %>></a>
+										</li>
+									<% else %>
+										<% if can? :manage, :selection, :steps  %>
+											<li class="active" >
+												<a <%=link_to "Manage Selection", selections_path %>></a>
+											</li>
+										<% end %>
+									<% end %>
 								<% end %>
 								<% if current_user %>
 								<li class="active">
