@@ -18,10 +18,10 @@
         <tr>
           <td><%= selection.title %></td>
           <% if can? :manage, 'users' %>
-            <td><%= Enterprise.find(current_user.enterprise_id).name %></td>
+            <td><%= Enterprise.find(selection.enterprise_id).name %></td>
           <% end %>
-          <td><%= link_to 'Detalhes', selection %> | </td>
-          <td><%= link_to 'Editar', edit_selection_path(selection) %> | </td>
+          <td><%= link_to 'Detalhes', selection %>  </td>
+          <td><%= link_to 'Editar', edit_selection_path(selection) %>  </td>
           <td><%= link_to 'Excluir', selection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>

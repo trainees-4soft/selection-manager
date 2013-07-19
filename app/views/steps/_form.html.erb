@@ -1,5 +1,5 @@
 <%= simple_form_for([@selection, @step], :html => { :class => 'form-horizontal' ,  :multipart => true }) do |f| %>
-
+<% if @selection.enterprise_id == current_user.enterprise_id %>
   <%= f.input :title %>
   <%= f.input :date, as: :date, start_year: Date.today.year,  
                                 end_year: Date.today.year + 10 ,
@@ -17,4 +17,7 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 selection_steps_path, :class => 'btn btn-info' %>
   </div>
+  <% else %>
+    <% redirect_to root_url %>
+  <% end %>
 <% end %>
