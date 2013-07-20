@@ -4,6 +4,10 @@
 
 	<h3> <%= @selection.description %></h3>
 
+	<% @selection.candidates.each do |c|%>
+		c.name
+	<% end %>
+
 	<% if @selection.steps.count.zero? %>
 		<p><h4>Não há etapas cadastradas!</h4></p>
 	<% else %>
@@ -16,8 +20,8 @@
 				<th></th>
 				<th></th>
 				<th></th>
-			</tr>
-
+			</tr>		
+			
 		<% @selection.steps.each do |step| %>
   			<tr>
     			<td><%= step.title %></td>

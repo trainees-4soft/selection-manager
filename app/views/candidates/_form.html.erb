@@ -1,37 +1,12 @@
-<%= form_for(@candidate) do |f| %>
-  <% if @candidate.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+<%= simple_form_for([@selection, @candidate], :html => { :class => 'form-horizontal' ,  :multipart => true }) do |f| %>
 
-      <ul>
-      <% @candidate.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :telephone %>
-    <%= f.text_field :telephone %>
-  </div>
-  <div class="field">
-    <%= f.label :facebook %>
-    <%= f.text_field :facebook %>
-  </div>
-  <div class="field">
-    <%= f.label :about %>
-    <%= f.text_area :about %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <%= f.input :name, label: 'Nome' %>
+      <%= f.input :email, label: 'Email' %>      
+      <%= f.input :facebook, label: 'Facebook' %>
+      <%= f.input :telephone, label: 'Telefone' %>
+      <%= f.input :about, label: 'Fale um pouco sobre você', :input_html => {
+      	:style => 'width: 280px; height: 200px'} %>
+          
+      <%= f.button :submit, :class => 'btn btn-primary' %>
+      <a href="/" class="btn btn-primary">Cancelar</a>      
 <% end %>

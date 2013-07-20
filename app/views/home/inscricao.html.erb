@@ -13,7 +13,7 @@
       <td><%= s.title %></td>
       <td><%= s.entries_end_date %></td>
       <td><%= s.description %></td>
-      <td class="subscribe-btn"><%= link_to 'Inscrever-se', new_candidate_path %></td>
+      <td class="subscribe-btn"><%= link_to 'Inscrever-se', new_selection_candidate_path(s) %></td>      
     </tr>
   <% end %>
   </table>

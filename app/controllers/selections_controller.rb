@@ -76,6 +76,8 @@ class SelectionsController < ApplicationController
     @selection = Selection.find(params[:id])
     @steps = @selection.steps
     @steps.destroy_all
+    @candidates = @selection.candidates
+    @candidates.destroy_all
     @selection.destroy
 
     respond_to do |format|
