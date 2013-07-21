@@ -57,7 +57,7 @@
 							<% selections.steps.each do |steps| %>
 								<ul>
 							
-								<li><%= steps.title %></li>
+								<li><%= steps.title %> <%= link_to "Editar Etapa", edit_selection_step_path(steps.selection, steps) %></li>
 								</ul>
 							<% end %>
 						

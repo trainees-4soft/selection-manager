@@ -7,8 +7,8 @@ SelectionManager::Application.routes.draw do
   resources :selections do
     resources :candidates, :except => :index
   end
-
-
+  
+  
   devise_for :users
 
 
