@@ -4,9 +4,33 @@
 
 	<h3> <%= @selection.description %></h3>
 
-	<% for candidates in Candidate.find(:all,:conditions =>["selection_id LIKE :current",{:current => @selection.id}]) %>
+	
+	<!--<% for candidates in Candidate.find(:all,:conditions =>["selection_id LIKE :current",{:current => @selection.id}]) %>
 		<%= candidates.name%>
 	<% end %>
+-->
+
+	<table>
+		<thead>
+			<th>Candidatos</th>
+			<th>Dados</th>
+			<th>Selecionar para próxima etapa</th>
+		</thead>
+		<tbody>
+	<%@selection.candidates.each do |c| %>
+			<td>				
+				<%= c.name%>				
+			</td>	
+			<td>
+				<%= link_to 'Dados', selection_candidate_path(c.selection, c) %>
+			</td>
+			<td>
+							
+			</td>
+		</tbody>		
+	<% end %>
+	</table>
+
 
 	<% if @selection.steps.count.zero? %>
 		<p><h4>Não há etapas cadastradas!</h4></p>
