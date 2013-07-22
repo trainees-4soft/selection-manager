@@ -4,8 +4,8 @@
 
 	<h3> <%= @selection.description %></h3>
 
-	<% @selection.candidate.each do |c|%>
-		<%=c.name%>
+	<% for candidates in Candidate.find(:all,:conditions =>["selection_id LIKE :current",{:current => @selection.id}]) %>
+		<%= candidates.name%>
 	<% end %>
 
 	<% if @selection.steps.count.zero? %>
