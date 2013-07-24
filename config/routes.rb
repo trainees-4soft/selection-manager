@@ -1,5 +1,9 @@
 SelectionManager::Application.routes.draw do
 
+  resources :candidates do
+    resources :avaliations
+  end
+
   get "home/inscricao"
 
   resources :roles

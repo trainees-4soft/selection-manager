@@ -1,0 +1,29 @@
+<%= form_for(@avaliation) do |f| %>
+  <% if @avaliation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@avaliation.errors.count, "error") %> prohibited this avaliation from being saved:</h2>
+
+      <ul>
+      <% @avaliation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :step %><br />
+    <%= f.number_field :step %>
+  </div>
+  <div class="field">
+    <%= f.label :avaliation %><br />
+    <%= f.text_area :avaliation %>
+  </div>
+  <div class="field">
+    <%= f.label :candidate %><br />
+    <%= f.text_field :candidate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

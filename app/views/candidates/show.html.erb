@@ -25,6 +25,34 @@
   <%= @candidate.about %>
 </p>
 
+<h2>Avaliações</h2>
+<% @candidate.avaliations.each do |avaliation| %>
+  <p>
+    <strong>Etapa:</strong>
+    <%= avaliation.step %>
+  </p>
+ 
+  <p>
+    <strong>Avaliação:</strong>
+    <%= avaliation.avaliation %>
+  </p>
+<% end %>
+
+<p>Adicionar avaliação:</p>
+<%= form_for([@candidate, @candidate.avaliations.build]) do |f| %>
+  <p>
+    <%= f.label :step %><br />
+    <%= f.number_field :step %>
+  </p>
+  <p>
+    <%= f.label :avaliation %><br />
+    <%= f.text_area :avaliation %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_selection_candidate_path(@candidate) %> |
 <%= link_to 'Back', home_inscricao_path %>

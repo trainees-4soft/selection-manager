@@ -1,0 +1,27 @@
+<h1>Listing avaliations</h1>
+
+<table>
+  <tr>
+    <th>Step</th>
+    <th>Avaliation</th>
+    <th>Candidate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @avaliations.each do |avaliation| %>
+  <tr>
+    <td><%= avaliation.step %></td>
+    <td><%= avaliation.avaliation %></td>
+    <td><%= avaliation.candidate %></td>
+    <td><%= link_to 'Show', avaliation %></td>
+    <td><%= link_to 'Edit', edit_avaliation_path(avaliation) %></td>
+    <td><%= link_to 'Destroy', avaliation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Avaliation', new_avaliation_path %>
