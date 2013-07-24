@@ -1,0 +1,10 @@
+# encoding: utf-8
+
+pt-BR:
+  titles:
+    selections:
+      show: Visualizar processo seletivo
+      edit: Editar processo seletivo
+    steps:
+      show: Visualizar etapa - %{step_name}
+      edit: Editando etapa - %{step_name}

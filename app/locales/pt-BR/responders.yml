@@ -1,0 +1,26 @@
+# encoding: utf-8
+
+pt-BR:
+  flash:
+    admin:
+      users:
+        create:
+          notice: 'Usuário cadastrado com sucesso, em breve o usuário receberá instruções via email para completar o cadastro.'
+
+    sessions:
+      create:
+        alert: 'E-mail e/ou Senha inválidos, verefique suas credenciais.'
+        notice: 'Autenticação realizada com sucesso.'
+      destroy:
+        notice: 'Sessão finalizada com sucesso.'
+
+    actions:
+      create:
+        notice: '%{resource_name} cadastrado(a) com sucesso.'
+        alert: '%{resource_name} não pode ser cadastrado(a), verifique os erros:'
+      update:
+        notice: '%{resource_name} atualizado(a) com sucesso.'
+        alert: '%{resource_name} não pode ser atualizado(a), verifique os erros:'
+      destroy:
+        notice: '%{resource_name} removido(a) com sucesso.'
+        alert: '%{resource_name} não pode ser removido. Lembre-se que Administradores não podem ser removidos.'

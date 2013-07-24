@@ -15,6 +15,8 @@ gem "paperclip", "~> 2.3"
 
 gem 'factory_girl_rails', '~> 4.0'
 
+gem 'swiss_knife'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

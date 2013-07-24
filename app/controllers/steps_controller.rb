@@ -9,6 +9,8 @@ class StepsController < ApplicationController
   def show
     @step = Step.find(params[:id])
 
+    page_title step_name: @step.title 
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @step }
@@ -31,6 +33,8 @@ class StepsController < ApplicationController
   def edit
     @step = Step.find(params[:id])
     @selection = @step.selection
+
+    page_title step_name: @step.title
   end
 
   # POST /steps

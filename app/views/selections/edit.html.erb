@@ -1,6 +1,6 @@
-<h1>Editing selection</h1>
+<h1><%= t('titles.selections.edit') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', selections_path %> |
-<%= link_to 'Delete', @selection, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to t('actions.back'), selections_path %> |
+<%= link_to t('actions.delete'), @selection, method: :delete, data: { confirm: 'Are you sure?' } %>

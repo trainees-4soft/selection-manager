@@ -1,0 +1,10 @@
+# encoding: utf-8
+
+pt-BR:
+  activerecord:
+    models:
+      user: Usuário
+      candidate: Candidato
+      enterprise: Empresa
+      selection: Seleção
+      step: Etapa
