@@ -1,4 +1,4 @@
-		<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 <% if @selection.enterprise_id == current_user.enterprise_id or current_user.enterprise_id.eql?1 %>
 	<h2> Processo Seletivo: <%= @selection.title %> </h2>
 
@@ -9,28 +9,30 @@
 		<%= candidates.name%>
 	<% end %>
 -->
+	<%@candidatos = @selection.candidates%>
 
-	<table>
-		<thead>
-			<th>Candidatos</th>
-			<th>Dados</th>
-			<th>Selecionar para próxima etapa</th>
-		</thead>
-		<tbody>
-	<%@selection.candidates.each do |c| %>
-			<td>				
-				<%= c.name%>				
-			</td>	
-			<td>
-				<%= link_to 'Dados', selection_candidate_path(c.selection, c) %>
-			</td>
-			<td>
-							
-			</td>
-		</tbody>		
-	<% end %>
-	</table>
-
+	<%if !@candidatos.count.zero? %>	
+		<table>
+			<thead>
+				<th>Candidatos</th>
+				<th>Dados</th>
+				<th>Selecionar para próxima etapa</th>
+			</thead>
+			<tbody>
+		<%@candidatos.each do |c| %>
+				<td>				
+					<%= c.name%>				
+				</td>	
+				<td>
+					<%= link_to 'Dados', selection_candidate_path(c.selection, c) %>
+				</td>
+				<td>
+								
+				</td>
+			</tbody>		
+		<% end %>
+		</table>
+	<%end%>
 
 	<% if @selection.steps.count.zero? %>
 		<p><h4>Não há etapas cadastradas!</h4></p>
@@ -57,7 +59,7 @@
     			<td><%= @data.strftime "%d/%m/%Y" %></td>
 	    		<td><%= link_to 'Detalhes', selection_step_path(step.selection, step) %></td>
 	    		<td><%= link_to 'Editar', edit_selection_step_path(step.selection, step) %></td>
-	    		<td><%= link_to 'Excluir', @selection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	    		<td><%= link_to 'Excluir', step.selection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   			</tr>
 		<% end %>
 		</table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724004259) do
+ActiveRecord::Schema.define(:version => 20130727182752) do
 
   create_table "avaliations", :force => true do |t|
     t.integer  "step"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130724004259) do
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
     t.boolean  "attach_file"
+    t.boolean  "send_archive"
   end
 
   create_table "users", :force => true do |t|

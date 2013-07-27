@@ -17,9 +17,15 @@
   <%= @hora.strftime "%H:%M" %>
 </p>
 
-<a href="<%= @step.attach.url %> ">
-<b> Arquivo Anexado</b></a>
-<br/>
+ <%= @step.send_archive %>
+
+ <% @url = @step.attach.url %>
+
+ <%  if !@url.eql? "/attaches/original/missing.png " %>
+	<a href="<%= @url %> ">
+	<b> Arquivo Anexado</b></a>
+	<br/>
+<% end %>
  
 
 <%= link_to 'Editar', edit_selection_step_path(@step.selection, @step) %> |

@@ -49,11 +49,9 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       if @candidate.save
-        format.html { redirect_to selection_candidate_path(@candidate.selection, @candidate), notice: 'Candidato Cadastrado' }
-        format.json { render json: @candidate, status: :created, location: @candidate }
+        format.html { redirect_to :root, notice: 'Candidato Cadastrado' }      
       else
-        format.html { render action: "new" }
-        format.json { render json: @candidate.errors, status: :unprocessable_entity }
+        format.html { render action: "new" }        
       end
     end
   end

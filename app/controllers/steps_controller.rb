@@ -72,7 +72,7 @@ class StepsController < ApplicationController
 
   # DELETE /steps/1
   # DELETE /steps/1.json
-  def destroy
+  def destroy    
     @step = Step.find(params[:id])
     @step.destroy
 

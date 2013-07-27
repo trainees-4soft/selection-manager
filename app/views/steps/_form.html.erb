@@ -12,6 +12,9 @@
     <%= f.file_field :attach %>
   </p>
 
+  <b>Deseja que candidato anexe arquivo? </b>
+  <%= check_box_tag :send_archive %>
+
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
