@@ -13,7 +13,10 @@
   </p>
 
   <b>Deseja que candidato anexe arquivo? </b>
-  <%= check_box_tag :send_archive %>
+  <%= 'Sim' %>
+  <%= f.check_box :send_archive,{},true%>
+  <%= 'Não' %>
+  <%= f.check_box :send_archive,{},false%>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary' %>

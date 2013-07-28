@@ -4,5 +4,5 @@ class DeleteAvaliations < ActiveRecord::Migration
 
   # def down
   # end
-  drop_table :avaliations
+ # drop_table :avaliations
 end
